@@ -4,7 +4,7 @@ title: AimDroid on Emulator
 
 
 
-The following guide is about how to setup AimDroid on an emulator and Mac OS.
+The following guide is about how to setup AimDroid on an emulator on Mac OS.
 
 There are simply five main steps.
 
@@ -37,7 +37,7 @@ There are simply five main steps.
 
         <img class="img-responsive" style="margin:0 auto;max-width:800px;height:auto;" src="AVDManager2.png" alt="AVD Manager 2"/>
 
-    3. In the new window, select the recommended image (marked by red rectangle.) and then click `next`.
+    3. In the new window, select the recommended image (marked by red rectangle.) and then click `next`. You may need to click the download link first.
 
         <img class="img-responsive" style="margin:0 auto;max-width:800px;height:auto;" src="AVDManager3.png" alt="AVD Manager 3"/>
 
@@ -65,7 +65,7 @@ There are simply five main steps.
 
 ## Step 2: Install AimDroid.
 
-We have downloaded all necessary binaries for installing the Xposed framework.
+We have provided all necessary binaries for installing the Xposed framework.
 
 * [all-in-one.zip](./all-in-one.zip)
 
@@ -153,8 +153,8 @@ We have created a script (`install-emulator.sh`) that does the every thing but y
 
         adb reboot
 
-!!! note:
-    During reboot, all apps will be recompiled by the AOT compiler of the ART again. This would take several minutes.
+    !!! note:
+        During reboot, all apps will be recompiled by the AOT compiler of the ART again. This would take several minutes.
 
 ## Step 4: Configure the Controller
 
@@ -197,3 +197,10 @@ Simply invoke `monidroid` from your command line.
 ```
 ./monitroid
 ```
+
+
+!!! note:
+    To build the Android ART, we need to download the entire source code tree of the AOSP.
+    Currently, we haven't provided the **x86** version of the binary of our modified ART for collecting method/instruction coverage.
+    This means `monidroid` now actually cannot collect coverage information on an **emulator**.
+    We will provide it once we are able to build it.

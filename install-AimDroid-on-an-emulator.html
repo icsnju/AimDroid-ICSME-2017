@@ -17,7 +17,7 @@
   <body role="document">
     <div class="container">
     <h1 id="install-aimdroid-on-emulator">Install AimDroid on Emulator</h1>
-<p>The following guide is about how to setup AimDroid on an emulator and Mac OS.</p>
+<p>The following guide is about how to setup AimDroid on an emulator on Mac OS.</p>
 <p>There are simply five main steps.</p>
 <ol>
 <li>Create and start a Nexus 7 virtual deivce</li>
@@ -58,7 +58,7 @@ export PATH=$PATH:/Users/tianxiaogu/Library/Android/sdk/emulator
 <p><img class="img-responsive" style="margin:0 auto;max-width:800px;height:auto;" src="AVDManager2.png" alt="AVD Manager 2"/></p>
 </li>
 <li>
-<p>In the new window, select the recommended image (marked by red rectangle.) and then click <code>next</code>.</p>
+<p>In the new window, select the recommended image (marked by red rectangle.) and then click <code>next</code>. You may need to click the download link first.</p>
 <p><img class="img-responsive" style="margin:0 auto;max-width:800px;height:auto;" src="AVDManager3.png" alt="AVD Manager 3"/></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -92,7 +92,7 @@ export PATH=$PATH:/Users/tianxiaogu/Library/Android/sdk/emulator
 </li>
 </ol>
 <h2 id="step-2-install-aimdroid">Step 2: Install AimDroid.</h2>
-<p>We have downloaded all necessary binaries for installing the Xposed framework.</p>
+<p>We have provided all necessary binaries for installing the Xposed framework.</p>
 <ul>
 <li><a href="./all-in-one.zip">all-in-one.zip</a></li>
 </ul>
@@ -226,16 +226,18 @@ adb push ape /system/bin/
 </ol>
 <h2 id="step-3-reboot">Step 3: Reboot</h2>
 <ol>
-<li>Reboot the virtual device to enable Xposed<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>adb reboot
+<li>
+<p>Reboot the virtual device to enable Xposed</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>adb reboot
 </pre></div>
 </td></tr></table>
 
-</li>
-</ol>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>During reboot, all apps will be recompiled by the AOT compiler of the ART again. This would take several minutes.</p>
 </div>
+</li>
+</ol>
 <h2 id="step-4-configure-the-controller">Step 4: Configure the Controller</h2>
 <p>AimDroid Controller relies on a configuration file <code>configure.json</code>.
 You can edit the <code>configure.json</code> in the <code>all-in-one</code> folder.</p>
@@ -285,6 +287,14 @@ You can edit the <code>configure.json</code> in the <code>all-in-one</code> fold
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>./monitroid
 </pre></div>
 </td></tr></table>
+
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>To build the Android ART, we need to download the entire source code tree of the AOSP.
+Currently, we haven't provided the <strong>x86</strong> version of the binary of our modified ART for collecting method/instruction coverage.
+This means <code>monidroid</code> now actually cannot collect coverage information on an <strong>emulator</strong>.
+We will provide it once we are able to build it.</p>
+</div>
     </div>
 
     <footer class="footer" style="margin-top:10px;">

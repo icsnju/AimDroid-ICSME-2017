@@ -31,6 +31,9 @@ AimDroid contains the following subprojects.
 1. [AimDroid-controller](https://github.com/icsnju/AimDroid-controller)
 2. [AimDroid-ape](https://github.com/icsnju/AimDroid-ape)
 3. [AimDroid-monitor](https://github.com/icsnju/AimDroid-monitor)
-
+4. MiniTrace: For collecting method/instruction coverage inside the VM
+    * Runtime: over [xposed-marshmallow](https://github.com/icsnju/minitrace-on-xposed-marshmallow)
+    * Runtime: over [dalvikvm](https://github.com/icsnju/minitrace-on-dalvikvm)
+    * Parser: coming soon.
 
 
