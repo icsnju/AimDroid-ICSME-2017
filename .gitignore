@@ -2,3 +2,6 @@
 all-in-one
 .DS_Store
 *.pyc
+
+README/
+README.html

@@ -204,3 +204,5 @@ Simply invoke `monidroid` from your command line.
     Currently, we haven't provided the **x86** version of the binary of our modified ART for collecting method/instruction coverage.
     This means `monidroid` now actually cannot collect coverage information on an **emulator**.
     We will provide it once we are able to build it.
+
+##
