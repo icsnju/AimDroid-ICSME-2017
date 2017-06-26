@@ -2,7 +2,17 @@ title: AimDroid on Emulator
 
 # Install AimDroid on Emulator
 
+
+
 The following guide is about how to setup AimDroid on an emulator and Mac OS.
+
+There are simply six steps.
+
+1. Create and start a Nexus 7 virtual deivce
+2. Install AimDroid
+3. Reboot
+4. Configure the controller
+5. Run
 
 
 ## Step 1: Create a Nexus 7 Virtual Device
@@ -146,9 +156,10 @@ We have created a script (`install-emulator.sh`) that does the every thing but y
 !!! note:
     During reboot, all apps will be recompiled by the AOT compiler of the ART again. This would take several minutes.
 
-## Step 4: Test Run
+## Step 4: Configure the Controller
 
 AimDroid Controller relies on a configuration file `configure.json`.
+You can edit the `configure.json` in the `all-in-one` folder.
 
 Here is a sample of configuration file.
 
@@ -176,3 +187,13 @@ Here is the explanation of each option.
 5. `MaxSeqLen`, `MinSeqLen`: the length of actions in a single activity. See the paper for more details.
 6. `Time`: the total testing time in seconds.
 
+!!! note:
+    Put the `configure.json` into the same directory as the controller binary `monidroid`.
+
+## Step 5: Run
+
+Simply invoke `monidroid` from your command line.
+
+```
+./monitroid
+```

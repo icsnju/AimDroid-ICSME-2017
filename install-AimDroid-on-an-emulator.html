@@ -18,6 +18,14 @@
     <div class="container">
     <h1 id="install-aimdroid-on-emulator">Install AimDroid on Emulator</h1>
 <p>The following guide is about how to setup AimDroid on an emulator and Mac OS.</p>
+<p>There are simply six steps.</p>
+<ol>
+<li>Create and start a Nexus 7 virtual deivce</li>
+<li>Install AimDroid</li>
+<li>Reboot</li>
+<li>Configure the controller</li>
+<li>Run</li>
+</ol>
 <h2 id="step-1-create-a-nexus-7-virtual-device">Step 1: Create a Nexus 7 Virtual Device</h2>
 <ol>
 <li>Download and install Android Studio from <a href="https://developer.android.com/studio/index.html">https://developer.android.com/studio/index.html</a></li>
@@ -228,8 +236,9 @@ adb push ape /system/bin/
 <p class="admonition-title">Note</p>
 <p>During reboot, all apps will be recompiled by the AOT compiler of the ART again. This would take several minutes.</p>
 </div>
-<h2 id="step-4-test-run">Step 4: Test Run</h2>
-<p>AimDroid Controller relies on a configuration file <code>configure.json</code>.</p>
+<h2 id="step-4-configure-the-controller">Step 4: Configure the Controller</h2>
+<p>AimDroid Controller relies on a configuration file <code>configure.json</code>.
+You can edit the <code>configure.json</code> in the <code>all-in-one</code> folder.</p>
 <p>Here is a sample of configuration file.</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
@@ -267,6 +276,15 @@ adb push ape /system/bin/
 <li><code>MaxSeqLen</code>, <code>MinSeqLen</code>: the length of actions in a single activity. See the paper for more details.</li>
 <li><code>Time</code>: the total testing time in seconds.</li>
 </ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Put the <code>configure.json</code> into the same directory as the controller binary <code>monidroid</code>.</p>
+</div>
+<h2 id="step-5-run">Step 5: Run</h2>
+<p>Simply invoke <code>monidroid</code> from your command line.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>./monitroid
+</pre></div>
+</td></tr></table>
     </div>
 
     <footer class="footer" style="margin-top:10px;">
