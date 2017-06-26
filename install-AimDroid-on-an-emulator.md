@@ -6,7 +6,7 @@ title: AimDroid on Emulator
 
 The following guide is about how to setup AimDroid on an emulator and Mac OS.
 
-There are simply six steps.
+There are simply five main steps.
 
 1. Create and start a Nexus 7 virtual deivce
 2. Install AimDroid
