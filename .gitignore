@@ -1,0 +1,4 @@
+*.swp
+all-in-one
+.DS_Store
+*.pyc
