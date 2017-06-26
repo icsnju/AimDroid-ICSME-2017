@@ -57,7 +57,7 @@ The following guide is about how to setup AimDroid on an emulator and Mac OS.
 
 We have downloaded all necessary binaries for installing the Xposed framework.
 
-* [all-in-one.zip](all-in-one.zip)
+* [all-in-one.zip](./all-in-one.zip)
 
 ```
 all-in-one
