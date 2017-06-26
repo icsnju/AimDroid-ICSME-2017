@@ -27,6 +27,11 @@ We now working on implementing AimDroid on SATA.
 
 * [SATA: Steering Automated Testing for Android Applications](http://gutianxiao.com/sata)
 
+**Download this website (including every web page and artifact) from github for anonymous artifact evaluation.**
+
+* <https://github.com/icsnju/AimDroid-ICSME-2017>
+* You can view this website at your computer via any http server.
+    * `cd AimDroid-ICSME-2017 && python2 -m SimpleHTTPServer` and then visit <http://localhost:8000>
 
 ## Source
 
