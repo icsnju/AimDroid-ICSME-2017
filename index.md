@@ -15,7 +15,7 @@ title: Home
 
 We have provided all binaries for running AimDroid on an emulator.
 
-* [Install AimDroid on Emulator](./install-AimDroid-on-an-emulator/)
+* [Install AimDroid on Emulator](./install-AimDroid-on-an-emulator.html)
 
 We suggest you to use AimDroid to test real commercial industrial-strength sealed apps with hundreds activities.
 
