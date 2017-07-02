@@ -17,7 +17,11 @@
   <body role="document">
     <div class="container">
     <h1 id="install-aimdroid-on-emulator">Install AimDroid on Emulator</h1>
-<p>The following guide is about how to setup AimDroid on an emulator on Mac OS.</p>
+<ul>
+<li><strong>UPDATE-2017-07-01</strong>: We have uploaded the modified x86 version of <code>libart.so</code> and <code>libart-compiler.so</code>.
+  You can re-install AimDroid. You can check the coverage files at <code>/sdcard/coverage</code>.</li>
+</ul>
+<p>The following guide is about how to setup AimDroid on an <strong>emulator</strong> on <strong>Mac OS</strong>.</p>
 <p>There are simply five main steps.</p>
 <ol>
 <li>Create and start a Nexus 7 virtual deivce</li>
@@ -34,10 +38,10 @@
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
-4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>export ANDROID_HOME=/Users/tianxiaogu/Library/Android/sdk
-export PATH=$PATH:/Users/tianxiaogu/Library/Android/sdk/build-tools/25.0.3
-export PATH=$PATH:/Users/tianxiaogu/Library/Android/sdk/platform-tools
-export PATH=$PATH:/Users/tianxiaogu/Library/Android/sdk/emulator
+4</pre></div></td><td class="code"><div class="codehilite"><pre><span class="x">export ANDROID_HOME=/Users/tianxiaogu/Library/Android/sdk</span>
+<span class="x">export PATH=</span><span class="p">$</span><span class="nv">PATH</span><span class="x">:/Users/tianxiaogu/Library/Android/sdk/build-tools/25.0.3</span>
+<span class="x">export PATH=</span><span class="p">$</span><span class="nv">PATH</span><span class="x">:/Users/tianxiaogu/Library/Android/sdk/platform-tools</span>
+<span class="x">export PATH=</span><span class="p">$</span><span class="nv">PATH</span><span class="x">:/Users/tianxiaogu/Library/Android/sdk/emulator</span>
 </pre></div>
 </td></tr></table>
 
@@ -81,7 +85,7 @@ export PATH=$PATH:/Users/tianxiaogu/Library/Android/sdk/emulator
 </li>
 <li>
 <p>In the command line, open the emulator from command line and enable <code>-writable-system</code>. Wait for the emulator to start up.</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>emulator @Nexus_7_API_23 -writable-system
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre>emulator @Nexus_7_API_23 -writable-system
 </pre></div>
 </td></tr></table>
 
@@ -96,86 +100,8 @@ export PATH=$PATH:/Users/tianxiaogu/Library/Android/sdk/emulator
 <ul>
 <li><a href="./all-in-one.zip">all-in-one.zip</a></li>
 </ul>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>all-in-one
-├──ape
-├──ape.jar
-├──app-debug.apk
-├──configure.json
-├──install-emulator.sh
-├──monidroid
-├──xposed-installer-3-1-1.apk
-├──xposed-v87-sdk23-x86.zip
-└──xposed-zip
-    ├──META-INF
-    │   ├──CERT.RSA
-    │   ├──CERT.SF
-    │   ├──MANIFEST.MF
-    │   └──com
-    │       └──google
-    │           └──android
-    │               ├──genymotion-ready
-    │               ├──update-binary
-    │               └──updater-script
-    ├──flash-script.sh
-    └──system
-        ├──bin
-        │   ├──app_process32_xposed
-        │   ├──dex2oat
-        │   ├──oatdump
-        │   └──patchoat
-        ├──framework
-        │   └──XposedBridge.jar
-        ├──lib
-        │   ├──libart-compiler.so
-        │   ├──libart-disassembler.so
-        │   ├──libart.so
-        │   ├──libsigchain.so
-        │   └──libxposed_art.so
-        └──xposed.prop
-
-9 directories, 26 files
-</pre></div>
-</td></tr></table>
-
 <p>We have created a script (<code>install-emulator.sh</code>) that does the every thing but you should also know the detailed steps in case of any error.</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>./install-emulator.sh
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre>./install-emulator.sh
 </pre></div>
 </td></tr></table>
 
@@ -184,7 +110,7 @@ export PATH=$PATH:/Users/tianxiaogu/Library/Android/sdk/emulator
 <li>
 <p>Install Xposed.</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>adb push xposed-zip /sdcard/
+2</pre></div></td><td class="code"><div class="codehilite"><pre>adb push xposed-zip /sdcard/
 adb shell &quot;cd /sdcard/xposed &amp;&amp; sh flash-script.sh&quot;
 </pre></div>
 </td></tr></table>
@@ -192,7 +118,7 @@ adb shell &quot;cd /sdcard/xposed &amp;&amp; sh flash-script.sh&quot;
 </li>
 <li>
 <p>Install the Xposed Module Manager app.</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>adb install xposed-installer-3-1-1.apk
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre>adb install xposed-installer-3-1-1.apk
 </pre></div>
 </td></tr></table>
 
@@ -201,7 +127,7 @@ adb shell &quot;cd /sdcard/xposed &amp;&amp; sh flash-script.sh&quot;
 <p>Install <code>AimDroid-ape</code></p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
-3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>adb push ape.jar /sdcard/
+3</pre></div></td><td class="code"><div class="codehilite"><pre>adb push ape.jar /sdcard/
 adb shell mount -o rw,remount /system
 adb push ape /system/bin/
 </pre></div>
@@ -213,8 +139,25 @@ adb push ape /system/bin/
 </div>
 </li>
 <li>
+<p>Install our modified <code>libart.so</code> and <code>libart-compiler.so</code> to collect instruction/method coverage.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="codehilite"><pre>adb push libart-compiler.so /system/lib
+adb push libart.so /system/lib
+adb shell chmod 644 /system/lib/libart.so
+adb shell chown root:root /system/lib/libart.so
+adb shell chmod 644 /system/lib/libart-compiler.so
+adb shell chown root:root /system/lib/libart-compiler.so
+</pre></div>
+</td></tr></table>
+
+</li>
+<li>
 <p>Install <code>AimDroid-monitor</code></p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>adb install app-debug.apk
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre>adb install app-debug.apk
 </pre></div>
 </td></tr></table>
 
@@ -228,7 +171,7 @@ adb push ape /system/bin/
 <ol>
 <li>
 <p>Reboot the virtual device to enable Xposed</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>adb reboot
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre>adb reboot
 </pre></div>
 </td></tr></table>
 
@@ -252,7 +195,7 @@ You can edit the <code>configure.json</code> in the <code>all-in-one</code> fold
  8
  9
 10
-11</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>{
+11</pre></div></td><td class="code"><div class="codehilite"><pre>{
     &quot;PackageName&quot;:&quot;com.google.android.apps.photos&quot;,
     &quot;MainActivity&quot;:&quot;com.google.android.apps.photos.home.HomeActivity&quot;,
     &quot;SDKPath&quot;:&quot;/Users/tianxiaogu/Library/Android/sdk/&quot;,
@@ -283,19 +226,12 @@ You can edit the <code>configure.json</code> in the <code>all-in-one</code> fold
 <p>Put the <code>configure.json</code> into the same directory as the controller binary <code>monidroid</code>.</p>
 </div>
 <h2 id="step-5-run">Step 5: Run</h2>
+<p>You need to build your own binary of the AimDroid controller.
+Please refer to the github project of <a href="https://github.com/icsnju/AimDroid-controller">AimDroid-controller</a>.</p>
 <p>Simply invoke <code>monidroid</code> from your command line.</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>./monitroid
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre>./monitroid
 </pre></div>
 </td></tr></table>
-
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>To build the Android ART, we need to download the entire source code tree of the AOSP.
-Currently, we haven't provided the <strong>x86</strong> version of the binary of our modified ART for collecting method/instruction coverage.
-This means <code>monidroid</code> now actually cannot collect coverage information on an <strong>emulator</strong>.
-We will provide it once we are able to build it.</p>
-</div>
-<h2 id="_1"></h2>
     </div>
 
     <footer class="footer" style="margin-top:10px;">

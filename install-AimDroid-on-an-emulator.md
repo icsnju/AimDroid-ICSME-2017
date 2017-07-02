@@ -3,8 +3,12 @@ title: AimDroid on Emulator
 # Install AimDroid on Emulator
 
 
+* **UPDATE-2017-07-01**: We have uploaded the modified x86 version of `libart.so` and `libart-compiler.so`.
+  You can re-install AimDroid. You can check the coverage files at `/sdcard/coverage`.
 
-The following guide is about how to setup AimDroid on an emulator on Mac OS.
+
+The following guide is about how to setup AimDroid on an **emulator** on **Mac OS**.
+
 
 There are simply five main steps.
 
@@ -69,47 +73,6 @@ We have provided all necessary binaries for installing the Xposed framework.
 
 * [all-in-one.zip](./all-in-one.zip)
 
-```
-all-in-one
-├──ape
-├──ape.jar
-├──app-debug.apk
-├──configure.json
-├──install-emulator.sh
-├──monidroid
-├──xposed-installer-3-1-1.apk
-├──xposed-v87-sdk23-x86.zip
-└──xposed-zip
-    ├──META-INF
-    │   ├──CERT.RSA
-    │   ├──CERT.SF
-    │   ├──MANIFEST.MF
-    │   └──com
-    │       └──google
-    │           └──android
-    │               ├──genymotion-ready
-    │               ├──update-binary
-    │               └──updater-script
-    ├──flash-script.sh
-    └──system
-        ├──bin
-        │   ├──app_process32_xposed
-        │   ├──dex2oat
-        │   ├──oatdump
-        │   └──patchoat
-        ├──framework
-        │   └──XposedBridge.jar
-        ├──lib
-        │   ├──libart-compiler.so
-        │   ├──libart-disassembler.so
-        │   ├──libart.so
-        │   ├──libsigchain.so
-        │   └──libxposed_art.so
-        └──xposed.prop
-
-9 directories, 26 files
-```
-
 We have created a script (`install-emulator.sh`) that does the every thing but you should also know the detailed steps in case of any error.
 
 ```
@@ -139,8 +102,17 @@ We have created a script (`install-emulator.sh`) that does the every thing but y
     !!! note:
         The script can also be put into /sdcard/ on Android from 6.0. Here we put it in the `PATH` for convenient.
 
+4. Install our modified `libart.so` and `libart-compiler.so` to collect instruction/method coverage.
 
-4. Install `AimDroid-monitor`
+
+        adb push libart-compiler.so /system/lib
+        adb push libart.so /system/lib
+        adb shell chmod 644 /system/lib/libart.so
+        adb shell chown root:root /system/lib/libart.so
+        adb shell chmod 644 /system/lib/libart-compiler.so
+        adb shell chown root:root /system/lib/libart-compiler.so
+
+5. Install `AimDroid-monitor`
 
         adb install app-debug.apk
 
@@ -192,6 +164,9 @@ Here is the explanation of each option.
 
 ## Step 5: Run
 
+You need to build your own binary of the AimDroid controller.
+Please refer to the github project of [AimDroid-controller](https://github.com/icsnju/AimDroid-controller).
+
 Simply invoke `monidroid` from your command line.
 
 ```
@@ -199,10 +174,3 @@ Simply invoke `monidroid` from your command line.
 ```
 
 
-!!! note:
-    To build the Android ART, we need to download the entire source code tree of the AOSP.
-    Currently, we haven't provided the **x86** version of the binary of our modified ART for collecting method/instruction coverage.
-    This means `monidroid` now actually cannot collect coverage information on an **emulator**.
-    We will provide it once we are able to build it.
-
-##

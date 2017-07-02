@@ -33,6 +33,7 @@ We now working on implementing AimDroid on SATA.
 * You can view this website at your computer via any http server.
     * `cd AimDroid-ICSME-2017 && python2 -m SimpleHTTPServer` and then visit <http://localhost:8000>
 
+
 ## Source
 
 AimDroid contains the following subprojects.
@@ -45,4 +46,6 @@ AimDroid contains the following subprojects.
     * Runtime over [dalvikvm](https://github.com/icsnju/minitrace-on-dalvikvm)
     * Parser: coming soon.
 
+## AimDroid on Unrooted Device
 
+* [How to enable AimDroid to run on unrooted devices?](unrooted-AimDroid.html)
