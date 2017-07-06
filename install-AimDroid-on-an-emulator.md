@@ -170,7 +170,7 @@ Please refer to the github project of [AimDroid-controller](https://github.com/i
 Simply invoke `monidroid` from your command line.
 
 ```
-./monitroid
+./monidroid
 ```
 
 
