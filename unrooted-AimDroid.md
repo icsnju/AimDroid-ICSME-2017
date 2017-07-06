@@ -31,6 +31,6 @@ Related hidden APIs:
 1. [IActivityManager](https://android.googlesource.com/platform/frameworks/base/+/master/core/java/android/app/IActivityManager.java)
 2. [IActivityController](https://android.googlesource.com/platform/frameworks/base.git/+/master/core/java/android/app/IActivityController.aidl)
 
-Another technique challenge is to build and run AimDroid on a unrooted device. This might not be a problem since Android 6.0.
+Another technique challenge is to build and run AimDroid on an unrooted device. This might not be a problem since Android 6.0.
 We are now working on improving SATA, a practical framework for black-box model-based testing for Android app.
 Try [SATA](https://github.com/tianxiaogu/tianxiaogu.github.io/blob/master/sata/ape-bin.zip) on an unrooted device.
