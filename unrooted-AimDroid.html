@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title> AimDroid on Unrooted Devices |  AimDroid </title>
+
+
+    <!-- Styles -->
+    <link href="./css/font-awesome.min.css" rel="stylesheet" type="text/css"><!-- font-awesome -->
+    <link href="./css/bootstrap.min.css" rel="stylesheet" type="text/css"><!-- Bootstrap -->
+    <link href="./css/pygments.css" rel="stylesheet" type="text/css"><!-- Pygments -->
+    <link href="./css/moon.css" rel="stylesheet" type="text/css"><!-- moon -->
+    <link href="./css/bibtex.css" rel="stylesheet" type="text/css"><!-- bibtex-->
+  </head>
+  <body role="document">
+    <div class="container">
+    <h1 id="aimdroid-on-unrooted-devices">AimDroid on Unrooted Devices</h1>
+<p>The current implementation of AimDroid requires to root the device to install the Xposed framework.
+Currently, we leverage the Xposed framework to support the following operations.</p>
+<ol>
+<li>To block/unblock the start of an activity and record the parameter intent.</li>
+<li>Start an activity by directly call the API <code>startActivity</code> and its variants.</li>
+</ol>
+<p>Actually, we have found that the Android framework has already provided necessary APIs to support AimDroid.
+These APIs are used by Monkey to support the option <code>-p</code>, which is mainly used to block inter-app activity transitions.</p>
+<ol>
+<li>
+<p>To block/unlock activity start, we can implement a custom <code>IActivityController</code>. Check the method <code>activityStarting</code>.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span class="cm">/**</span>
+<span class="cm"> * The system is trying to start an activity.  Return true to allow</span>
+<span class="cm"> * it to be started as normal, or false to cancel/reject this activity.</span>
+<span class="cm"> */</span><span class="w"></span>
+boolean<span class="w"> </span>activityStarting<span class="o">(</span>in<span class="w"> </span>Intent<span class="w"> </span>intent<span class="o">,</span><span class="w"> </span>String<span class="w"> </span>pkg<span class="o">)</span><span class="err">;</span><span class="w"></span>
+</pre></div>
+</td></tr></table>
+
+</li>
+<li>
+<p>To start an <a href="https://developer.android.com/guide/topics/manifest/activity-element.html#exported"><strong>exported</strong></a> activity, we can use <code>IActivityManager</code>.</p>
+</li>
+</ol>
+<p>You can checkout the source code of <a href="https://github.com/android/platform_development/tree/master/cmds/monkey">Monkey</a> to learn how to use these APIs.</p>
+<p>Related hidden APIs:</p>
+<ol>
+<li><a href="https://android.googlesource.com/platform/frameworks/base/+/master/core/java/android/app/IActivityManager.java">IActivityManager</a></li>
+<li><a href="https://android.googlesource.com/platform/frameworks/base.git/+/master/core/java/android/app/IActivityController.aidl">IActivityController</a></li>
+</ol>
+<p>Another technique challenge is to build and run AimDroid on a unrooted device. This might not be a problem since Android 6.0.
+We are now working on improving SATA, a practical framework for black-box model-based testing for Android app.
+Try <a href="https://github.com/tianxiaogu/tianxiaogu.github.io/blob/master/sata/ape-bin.zip">SATA</a> on an unrooted device.</p>
+    </div>
+
+    <footer class="footer" style="margin-top:10px;">
+      <div class="container">
+          <span class="text-muted">&copy; 2017 <a href="http://moon.nju.edu.cn">Institute of Computer Software, Nanjing University</a>. All rights reserved.</span>
+    </footer>
+
+    <!-- jQuery -->
+    <script src="./js/jquery-3.2.1.min.js"></script>
+    <script src="./js/jquery-migrate-1.4.1.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="./js/bootstrap.min.js"></script>
+
+    
+  </body>
+</html>
