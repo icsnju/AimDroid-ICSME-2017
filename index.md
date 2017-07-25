@@ -44,7 +44,7 @@ AimDroid contains the following subprojects.
 4. MiniTrace: For collecting method/instruction coverage inside the VM
     * Runtime over [xposed-marshmallow](https://github.com/icsnju/minitrace-on-xposed-marshmallow)
     * Runtime over [dalvikvm](https://github.com/icsnju/minitrace-on-dalvikvm)
-    * Parser: coming soon.
+    * [Parser](https://github.com/icsnju/AimDroid-coverage-parser)
 
 ## AimDroid on Unrooted Device
 
